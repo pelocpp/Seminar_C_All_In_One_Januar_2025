@@ -1,0 +1,248 @@
+C All in One
+
+Guten Morgen 
+
+Peter Loos
+
+C/C++ // C#, Java, Mobile Prog. (Android / Java)
+
+Back-to-the-Roots: C/C++
+
+Individual
+
+Erwartungen // Vorraussetzungen
+
+C: 
+
+2 Tools:
+
+== Unterlagen // Github
+
+https://github.com/pelocpp/c_introduction
+
+== Visual Studio
+== Visual Studio Community 2022
+
+======================================================
+
+Einführung in die Arbeitsweise der Werkzeuge
+
+Übersetzer (Compiler)
+
+In C:
+
+-- Übersetzer wird pro Datei angestoßen: ===> .obj (Object - File)
+
+==> Mehrere .c-Dateien ==> mehrere .obj-Files (binäres Format)
+
+-- Linker: Input: Mehrere .obj-Files ==> ein .exe-File (Windows: ausführbare Datei)
+
+Namensgebung: Linux:  .o  // ausführbare Datei: keine Endung
+
+Debugger:  Zum Testen
+
+====================================================================
+
+"Hello World" – das erste Programm
+
+a) Quelltext eingeben // Fehler beseitigen // Syntax / Grammatik muss korrekt sein
+
+b) Maschinencode erzeugen: "Build"
+
+c) Das Programm laufen lassen:
+
+   OHNE Debugger: Geht schneller
+
+   MIT Debugger:  Wenn ich Fehler suche
+
+
+Es werden vom Visual Studio viele Temporär-Dateien erzeugt:
+
+.sln ==> Solution
+.pdb ==> Program Database
+.vs  ==> Datenbank des Projekts für VS
+.vcxproj ==> Projekt Spezifischen Informationen
+
+============================================================
+
+Datentypen, Variablen and Konstanten
+
+Datentyp:  
+
+Welche Art von Wert / Daten haben wir !!!!! DATENTYP
+
+int          => ganze Zahl
+short        => ganze Zahl
+long         => ganze Zahl
+long long    => ganze Zahl
+
+
+float:       => Komma Zahl
+double:      => Komma Zahl
+
+char         => Zeichen
+
+Warum mehrere ?
+
+Daten belegen Speicher.
+
+Wieviel?   sizeof 
+
+
+Wer oder was ist size_t ???
+
+a) Ebenfalls ganzzahlig.
+
+Was verarbeitet die CPU ???  Akku // Akkumulator => DAS zentrale Register einer CPU
+
+size_t erfunden, um die Breite des Akkus abzubilden.
+
+Breite des Akkus: (( 1 Byte, 2 Byte, )) 4 Byte, 8 Byte
+
+
+Anzahl der Bits ==> entscheidet Wertebereich !!!
+
+a) 8 Bits = 1 Byte:  -128 bis +127
+
+b) 16 Bits = 2 Byte: -32,768 bis +32,767
+
+c) 32 Bits = 4 Bytes: +2,147,483,647
+
+Darstellung ganzer Zahlen in einer CPU:
+
+   Zweier-Komplement
+
+Ganzzahlige Datentypen:
+
+Wollen wir den Wert MIT Vorzeichen:   Temperatur
+
+Wollen wir den Wert OHNE Vorzeichen:  Häufigkeit
+
+short:           -32,768 bis +32,767
+
+unsigned short:  0 bis 65,535
+
+==>  Mikrocomputer Programmierung
+==>  Digitaltechnik
+
+
+VARIABLEN // variable
+
+Reserviert Speicher // wieviel: gem. Datentyp // hat für
+uns in der Anwendung einen Namen (Bezeichner // identifier )
+
+Bezeichner sollten "sprechend" sein.
+
+    value = 123;
+
+    Wertzuweisung // Assigment
+
+Jede Anweisung und Deklaration ist mit
+einem Semikolon abzuschließen.
+
+Deklaration: Definiert einen Bezeichner incl. Typ
+
+================================================================
+
+Debugger:
+
+Roter Kreis // Break-Point // F9
+
+Grüner (voller) Pfeil: Go // Run // F5
+
+Single Step: EINE ZEILE 
+
+IN 2 Varianten: Steht in der Zeile ein Unterprogrammaufruf oder nicht.
+
+Wenn Nein: Mit F10 // Single Step // Steo over wird die eine Zeile ausgeführt.
+
+Wenn Ja:
+   i)  Mit F10 // "Step over" wird die eine Zeile ausgeführt.
+   ii) Mit F11 // "Step into" wird in das Unterprogramm verzweigt // gesprungen.
+
+
+"Punkt vor Strich"
+
+Exakter: Vorrang (Priorität) von Operatoren
+
+================================================================
+
+Ausführung eines Programms:
+
+"Anweisung für Anweisung" - der Reihe nach - sequentiell
+
+Fallunterscheidung
+
+Bedingung:  Ist eine Bedingung erfüllt oder nicht ???
+
+Hat eine Zahl einen Wert größer 5 oder nicht ???
+
+Wahrheitswert: bool // true // false : Gibt es in C nicht.
+
+BLOCK:
+
+{
+}
+
+Achtung: if-Anweisungen mit EINER Anweisung
+
+GEHT - ich kann / könnte die geschweifen Klammern dann weglassen.
+
+EMPFEHLUNG:
+
+Verwende Kontrollstrukturen (zB. if) IMMER mit geschweifen Klammern verwenden.
+
+Logische Verknüpfung
+
+Es ist a groesser 5 UND b kleiner 10     UND:  &&
+Es ist a groesser 5 ODER b kleiner 10    ODER: ||
+Es ist nicht a groesser 5                NOT:  !
+
+// ========================================================================
+
+Wiederholungs-Anweisungen:
+
+while
+
+SYNTAX:
+
+while ( condition )
+{
+}
+
+while-Anweisung: In 2 Varianten:
+
+i)  while
+ii) do-while
+
+SYNTAX: do-while
+
+do
+{
+}
+while ( condition )
+
+// ======================================================
+
+Was ist in C eine Bedingung ????
+
+Es gibt kein bool // true // false
+
+Dennis Ritchie: Minimalistisch
+
+Bedingung in C: Inhalt eines int-Werts
+
+Was ist dann true ???
+Was ist dann false ???
+
+Definition:
+
+false: Wert ist Null
+true:  Wert ist Nicht Null
+
+Operatoren:
+
+ist-gleich:     ==
+
+ist-ungleich:   !=
+
