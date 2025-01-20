@@ -1,6 +1,165 @@
 #include <stdio.h>
 #include <string.h>
 
+// Unterprogramm
+
+void inkrement_zweimal()
+{
+    int i = 10;
+    int m;
+
+    // Nebeneffekte
+    // m = i++;  // Post-Inkrement: Erst Wertzuweisung, dann Inkrement
+    // m = ++i;  // Pre-Inkrement: Erst Inkrement, dann Wertzuweisung
+
+    m = i;      // Best Practice
+    i++;
+
+    printf("m: %d\n", m);
+}
+
+void felder()
+{
+    // 10 int-Werte in einem Feld vereinbaren
+    int zahlen[10] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+
+    // Zugriff auf das ERSTE Element:  Index 0 für das ERSTE Element
+    int first = zahlen[0];
+
+    // Zugriff auf das LETZTE Element:  Index 9 für das LETZTE Element
+    // Merkhilfe: Der INDEX des letzten Elements eines Felds ist
+    // gleich: LÄNGE minus 1
+
+    // int last = zahlen[9];
+    int last = zahlen[9];
+
+    // wie belegt man ein Feld typischerweise vor:  for-Schleife
+    for (int i = 0; i < 10; i++)
+    {
+        zahlen[i] = 2 * i;
+    }
+
+    //  wie gibt man ein Feld aus for-Schleife
+    for (int i = 0; i < 10; i++)
+    {
+        printf("%d: %d\n", i, zahlen[i]);
+    }
+}
+
+void blockschachtelung()
+{
+    int i = 123;
+    printf("i: %d\n", i);
+
+    // Block
+    {
+        int i = 11;  // Hier wird i aus Zeile 8 VERDECKT // Hidden
+                     // I wouldn't do this !!! Code Smell
+        printf("i: %d\n", i);
+        // Das i aus Zeile 8 ist in dieser Zeile UNERREICHBAR !!!!!!!
+
+        int j = 2;
+        printf("j: %d\n", j);
+    }
+
+    printf("i: %d\n", i);
+}
+
+void printer ( int start, int ziel )   // count: Stellvertreter
+{
+    for (int i = start; i < ziel; ++i)
+    {
+        printf("Hello Seminar\n");
+
+        if (i == 20) {
+            // break;
+            return;
+        }
+    }
+    printf("Done Unterprogramm\n");
+}
+
+int malDrei(int value)
+{
+    int result;
+
+    result = 3 * value;
+
+    return result;
+}
+
+void main_ups()
+{
+    int wieOft = 5;
+    printer(3, 6);              // Aufruf eines C-Unterprogramms - kein Ergebnis
+
+    int ergebnis = malDrei(5);  // Aufruf einer C-Funktion - mit Ergebnis abholen
+}
+
+// ====================================
+
+void for_loop()
+{
+    // simple for - loop
+    for (int i = 0; i < 10; i++)
+    {
+        printf("i: %d\n", i);
+    }
+
+    printf("Fertig\n");
+
+    // for - loop with break
+    for (int i = 0; i < 10; i++)
+    {
+        printf("i: %d\n", i);
+
+        // eine Besonderheit ist eingetreten
+        if (i == 5) {
+            // möchte vorzeitig ("unerwartet") die for-Schleife verlassen
+            break;
+        }
+    }
+
+    printf("Fertig\n");
+
+    // for - loop with continue
+    for (int i = 0; i < 10; i++)
+    {
+        // eine Besonderheit ist eingetreten - keine Ausgabe 
+        if (i == 5) {
+            // möchte für i == 5 keine Verarbeitung
+            continue;
+        }
+
+        printf("i: %d\n", i);
+    }
+}
+
+void what_is_modulo()
+{
+    int zaehler = 7;
+    int nenner = 3;
+
+    int result = zaehler / nenner;
+    int rest = zaehler % nenner;
+
+    // Achtung / Vorsicht
+    double dresult = zaehler / nenner;
+
+    // Eingabe von Nenner von der Konsole:
+   // scanf_s("%d", &nenner);
+
+    double d;
+    scanf_s("%lf", &d);
+
+
+    dresult = zaehler / nenner;
+
+    dresult = zaehler / 3.0;
+
+    dresult = zaehler / (double) nenner;   // Typ-Konvertierung nach double
+}
+
 void what_is_a_condition()
 {
     int value;
@@ -192,10 +351,10 @@ void sizeof_example ()
     printf("Sizeof (short):     %zu\n", sizeof(short));
     printf("Sizeof (long long): %zu\n", sizeof(long long));
 
-    getchar();
+   // getchar();
 }
 
 void main()
 {
-    what_is_a_condition();
+    inkrement_zweimal();
 }

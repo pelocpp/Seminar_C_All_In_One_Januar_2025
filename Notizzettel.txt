@@ -246,3 +246,251 @@ ist-gleich:     ==
 
 ist-ungleich:   !=
 
+===============================================================
+
+// Achtung / Vorsicht
+
+Stolperfalle:
+
+Es gibt in C ZWEI Divisionen:
+
+i) ganzzahlige Division:
+
+   7 / 3 = 2
+
+ii ) Gleitpunkt Division:
+
+   7 / 3 = 2.3333333
+
+Wie spreche ich welche der beiden Divisionen an ?
+
+==> Der Typ der Operanden entscheidet !!!
+
+Wenn BEIDE Operanden vom Typ int: ganzzahlige Division
+
+Wenn EINER oder BEIDE Operanden vom Typ float / double: Gleitpunkt Division
+
+Nebenbemerkung:
+
+float / double
+
+Es gibt ZWEI Gleitpunkt Realisierungen in C:
+
+float:   4 Byte
+
+   schneller / weniger exakt
+
+double:  8 Byte
+
+   langsamer / mehr exakt
+
+Im Detail: 4 Byte Div Befehl / 8 Byte Div Befehl.
+
+===========================================================
+
+2 Aufgaben:
+==========
+
+Teuflische Folge
+Kontrollstrukturen if und while, arithmetische Operatoren (Division und Modulo-Operation ganzer Zahlen).
+
+Zinsberechnung
+Kontrollstruktur for oder while, arithmetische Operatoren.
+
+Teuflische Folge: Folge von Zahlen
+
+Startwert n;
+
+int n = 7;
+
+Nächster Wert:
+
+n gerade:    n => n / 2
+n ungerade:  n => 3 * n + 1
+
+7, 22, 11, 34, 17, 52, 26, 13, 40, 20, 10, 5, 16, 8, 4, 1: Ist ENDE erreicht.
+
+
+eingabe mit scanf:
+
+'scanf': This function or variable may be unsafe.
+Consider using scanf_s instead.
+To disable deprecation, use _CRT_SECURE_NO_WARNINGS.
+
+'scanf_s'    // secure
+
+===============================================
+
+for: Sehr, sehr ähnlich mit while
+
+Warum for , wenn es while gibt:
+
+i) for ist "etwas" kompakter in der Schreibweise
+
+ii) while ==> Bedingung
+
+iii) for  ==> Wiederholung: mache etwas 100 Mal
+
+SYNTAX:
+
+for ( XXX ; YYY  ; ZZZ )
+{
+}
+
+for ( int i = 0 ; i < 10  ; i++ )
+{
+    // Rumpf 
+}
+
+================================================================
+
+"Unterprogramm"
+
+Eine Zusammenfassung von Anweisungen mit einem Namen.
+
+Mit diesem Namen kann man diese Folge von Anweisungen aufrufen.
+
+C:
+
+2 Arten von Unterprogrammen:
+
+a) Unterprogramm
+b) Funktion
+
+a) Unterprogramm: Berechnet / Liefert KEIN Ergebnis zurück
+
+SYNTAX:
+
+void name_unterprogramm ( parameter )
+{
+    // body // Rumpf // Folge von Anweisungen
+}
+
+b) Funktion:
+
+SYNTAX:
+
+type name_function ( parameter )
+{
+    // body // Rumpf // Folge von Anweisungen
+
+    return value;  // value muss vom Typ 'type'
+}
+
+
+// Lokale Variable
+
+=================================================
+
+Block: 
+
+Was ist ein Block: Alles zwischen { und }
+
+Wozu benötige ich einen Block?
+
+Blöcke: VORSICHT.
+
+Können Nebeneffekte haben !!!!!!!!!!!!!!!!!!!
+
+=================================================
+
+
+C-Programm:
+
+3 Arten von Variablen // Lebensdauer:
+
+a) Globale Variablen: Die gesamte Laufzeit des Programms.
+
+b) Lokale Variablen: Nur innerhalb eines Unterprogramms (exakter: innerhalb eines Blocks)
+
+c) Dynamische Variablen: Wenn ich sie benötige.
+
+          ( malloc / free )
+
+
+=================================================
+
+Arrays // Feld
+
+Was ist ein Array ???
+
+Vereinbarung eines zusammenhängenden Bereichs von Speicher:
+
+zusammenhängenden: Vorteil ==> schnell / effizient darauf zugreifen.
+
+Beobachtung:
+
+Ein Feld sollte VORBELEGT werden.
+
+Wenn es nicht vorbelegt ist: Zufallswerte sind enthalten.
+
+Ohhhhh, die sind alle gleich: Ist das zufällig ????????????????
+
+Nein: Im Debug-Modus übernimmt der Debugger die Vorbelegung eines Arrays.
+
+Es gibt für STACK und HEAP unterschiedlichen "Vorbelegungs"-Werte des Debuggers:
+
+CCCCC
+DDDDD
+
+Frage:
+
+Geht diese Anweisung:
+
+    int zahlen[10] = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10 };
+    // ...
+    int last = zahlen[10];
+
+Irgendwie Ja: Kein Error beim Übersetzen // Wird ausgeführt.
+
+Warum ?????????????????????????????????
+
+A) Das war die Philosophie / Entwurfsentscheidung von Dennis Ritchie:
+
+   "A Programmer know what he does"
+
+   Beobachtungen: C ist unsicher // unsecure
+                  C überprüft keine Indices.
+
+Warum ist das so: Historisch gewachsen.
+
+Warum hat man das nicht geändert ????
+  Weil viel zu viel geschriebener Code bereits vorhanden war.
+
+Was ist lerne ich daraus:
+
+Ich muss einfach höllisch aufpassen beim Programmieren.
+
+JavaSript: Überprüft alles. C# auch. Java auch.
+
+==========================================================
+
+Beobachtung:
+
+    // wie belegt man ein Feld typischerweise vor:  for-Schleife
+    for (int i = 0; i < 10; i++)
+    {
+        zahlen[i] = 2 * i;
+    }
+
+    //  wie gibt man ein Feld aus for-Schleife
+    for (int i = 0; i < 10; i++)
+    {
+        printf("%d: %d\n", i, zahlen[i]);
+    }
+
+
+Das sieht "aufwendig" aus.
+ 
+C hat im Gegensatz zu MatLab KEINE Unterstützung / keine Bibliotheken
+für Arrays.
+
+Wir könnten solche Funktionen / Unterprogramme selbst schreiben.
+
+=============================================================
+
+Es gibt den ++ Operator in 2 Varianten:
+
+Post-Inkrement  // danach
+Pre-Inkrement   // davor
+
