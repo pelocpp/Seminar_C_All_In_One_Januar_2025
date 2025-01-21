@@ -494,3 +494,4 @@ Es gibt den ++ Operator in 2 Varianten:
 Post-Inkrement  // danach
 Pre-Inkrement   // davor
 
+====================================================================

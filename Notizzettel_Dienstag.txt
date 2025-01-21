@@ -1,0 +1,114 @@
+C All in One
+
+Guten Morgen 
+
+Dienstag
+
+======================================================
+
+Struktur eines C-Programms
+--------------------------
+
+Vielen C-Dateien:
+
+Mit extern-Deklarationen werden Funktionen namentlich in einer
+anderen Datei bekannt gemacht.
+
+Compiler ==> viele .obj Dateien
+
+Linker: viele .obj Dateien => 1 .exe Datei
+
+======================================================
+
+Datentyp Zeiger:
+
+Es ist möglich, Adressen von Variablen in C zu verwenden.
+
+Datentyp Pointer / Zeiger.
+
+Why  ..........................
+
+Man wollte NICHT so etwas haben:
+
+0x7FDDE0
+
+Man wollte, dass die Adresse mit einem Datentyp verbunden ist:
+
+Hinter der Adresse 0x7FDDE0 liegt eine int-Variable
+Hinter der Adresse 0x7FDDE0 liegt eine long-Variable
+Hinter der Adresse 0x7FDDE0 liegt eine short-Variable
+
+Hinter der Adresse 0x7FDDE0 liegt ein Feld von 10 int-Variablen
+
+Typsicherheit.
+
+Beispiel:
+
+...8D4
+
+8D4
+8D5
+8D6
+8D7
+
+Begrifflichkeiten/
+Fachnomenklatur:
+
+ptr = &n;
+
+& - Operater: Adresse-von // Adress-of // referenzieren
+
+Man kann sagen: n referenziert ein Stück Speicher
+
+
+int m = *ptr;
+
+* - Operator: Wert-von // Value-of // Dereferenzieren
+
+============================================================
+
+Wie werden Parameter an Unterprogramme (Funktion) übergeben ???
+
+Parameterübergabemechanismus
+
+Standard-Realisierungen // gibt es in allen üblichen Programmiersprachen
+
+2-3 Varianten
+
+1. Variante: Call-by-Value // Call-by-Copy
+
+Es wird eine Kopie übergeben ==> Dadurch wird auf das Original NICHT zugegriffen,
+                                 eben nur auf eine Kopie.
+
+
+Wie funktioniert ein Unterprogramm-Aufruf in C (alle üblichen Programmiersprachen)
+
+Stack Frame
+
+
+2. Variante: Call-by-Address
+
+Es wird eine Adresse übergeben ==> Dadurch wird auf das Original zugegriffen.
+
+===============================================================================
+
+Zeigerarithmetik
+----------------
+
+Beispiel:
+
+.... 604
+.... 608
+
+Erste Betrachtung:
+
+Für Adressen sind die Operatoren ++ und -- definiert !!!
+
+Bemerkung:
+
+Macht erst wirklich Sinn bei Arrays
+// dynamischer Speicherverwaltung
+
+
+2 Aufgaben:
+
