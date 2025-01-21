@@ -142,3 +142,26 @@ void test_toUpper()
     toUpper(zeichen);
     printf("nachher: %s\n", zeichen);
 }
+
+// ========================================================
+//
+//Neue Aufgaben:
+//-------------
+
+void chr_append(const char* src, char ch, char* dest, int destLen)
+{
+
+}
+
+void test_chr_append()
+{
+    char ziel[50] = { '\0' };
+    // intern ist der Bezeichner 'ziel' identisch mit der Adresse des ersten Elements
+
+    printf("vorher:  %s\n", ziel);
+
+    chr_append("12345", '!', ziel, 50);
+
+    printf("nachher:  %s\n", ziel);
+
+}

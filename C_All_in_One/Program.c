@@ -3,5 +3,5 @@
 void main()
 {
     // Aufruf einer Funktion
-    test_toUpper();
+    test_chr_append();
 }
