@@ -112,3 +112,4 @@ Macht erst wirklich Sinn bei Arrays
 
 2 Aufgaben:
 
+Aufgabe zu Pointer / Zeiger
