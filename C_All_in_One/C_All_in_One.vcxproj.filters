@@ -28,8 +28,33 @@
     <ClCompile Include="Introduction.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Zeichen_und_Zeichenketten.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Functions.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="memory.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="Pointer_01.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="StackFrame.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="StackFrame2.png">
+      <Filter>Resource Files</Filter>
+    </Image>
+    <Image Include="zeichenkette.png">
+      <Filter>Resource Files</Filter>
+    </Image>
   </ItemGroup>
 </Project>

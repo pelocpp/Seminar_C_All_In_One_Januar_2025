@@ -133,10 +133,21 @@
   <ItemGroup>
     <ClCompile Include="Introduction.c" />
     <ClCompile Include="Program.c" />
+    <ClCompile Include="Zeichen_und_Zeichenketten.c" />
     <ClCompile Include="Zeiger.c" />
   </ItemGroup>
   <ItemGroup>
     <None Include="..\README.md" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="Functions.h" />
+  </ItemGroup>
+  <ItemGroup>
+    <Image Include="memory.png" />
+    <Image Include="Pointer_01.png" />
+    <Image Include="StackFrame.png" />
+    <Image Include="StackFrame2.png" />
+    <Image Include="zeichenkette.png" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">

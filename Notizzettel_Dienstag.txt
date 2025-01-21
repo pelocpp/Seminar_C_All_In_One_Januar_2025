@@ -9,7 +9,7 @@ Dienstag
 Struktur eines C-Programms
 --------------------------
 
-Vielen C-Dateien:
+Viele C-Dateien:
 
 Mit extern-Deklarationen werden Funktionen namentlich in einer
 anderen Datei bekannt gemacht.
@@ -113,3 +113,149 @@ Macht erst wirklich Sinn bei Arrays
 2 Aufgaben:
 
 Aufgabe zu Pointer / Zeiger
+
+===========================================================
+
+
+Struktur eines C-Programms
+--------------------------
+
+Zum Zweiten:
+
+Header-Dateien.
+
+Forward / Extern declarations sollten an einer zentralen Stelle stehen:
+
+Include-Datei // Header-Datei 
+
+Endung: .h
+
+Eine Header-Datei kann "nicht übersetzt werden"
+
+Warum: Weil sie kein .obj File erzeugt (in Folge einer Übersetzung)
+
+=============================================================================
+
+Zeichen und Zeichenketten
+-------------------------
+
+Zeichen:
+
+1 Zeichen
+
+char
+
+Zeichenkonstante: 'A'  EINZELNES Hochkomma
+
+Wie werden Zeichen intern / im Speicher dargestellt ????
+
+i) Als int-Wert - aber mit einer kleinen Zahl, die in EIN BYTE passt.
+
+ii) Kodierung:  Welcher  int-Wert <=> welches Zeichen
+
+    ASCII - Tabelle
+
+Es gibt zwischen den beiden Datentypen 'int' und 'char' eine "Freundschaft"
+
+Schreibmaschine
+
+Wie heißt das Teil ganz ober auf dieser Schreibmaschine?
+
+Schlitten / Wagen
+
+Wagenrücklauf:        Carriage Return
+
+Neue / nächste Zeile: Line Feed
+
+SW-Terminal: 
+
+=====================================================
+
+Zeichenkette:
+
+Was ist eine Zeichenkette: Folge von Zeichen / mehrere Zeichen
+
+C: daten-technische Formulierung:
+
+Ein Feld von Zeichen mit einem letzten, abschließenden Zeichen.
+--------------------------------------------------------------
+
+Gemeint die der Wert 0 - als Wert.
+
+Nicht: Zeichen '0'  - dieses hat den Wert 48.
+
+Hmm, kann man 0 als Zeichen schreiben: '\0'
+
+
+Darstellung:
+
+Als Konstante: "ABC" (hier ist '\0' AUTOMATISCH dabei)
+
+Als Datentyp:
+
+i)  Feld von Zeichen:   char s [Length];
+
+ii) Als Zeiger:         const char*
+
+    Der Zeiger zeigt auf der erste Zeichen.
+
+    Hier hängt es von der Art der Vorbelegung ab, ob das terminierende Zeichen dabei ist.
+
+
+Zwischenbemerkung:
+
+VBA, Matlab, ...:  string: Beobachtung: In C gibt es so etwas nicht!
+
+
+Nebenbemerkung:
+
+Wie wird der Zeilenumbruch dargestellt?
+
+Windows:    Textdatei (notepad):     2 Zeichen:  0D 0A
+
+Linux/Unix: Textdatei (vi / emacs):  1 Zeichen   LF = 0A
+
+// ====================================================
+
+Felder und Adressen "interagieren" in C:
+
+== Ein Feld hat eine Anfangsadresse
+== Es gibt das Feature "Adressarithmetik"
+
+++ ptr; Zählt "1" dazu -- "1" ist dabei als die Anzahl der Bytes zu betrachten,
+        die der Datentyp belegt.
+
+ptr + 3:
+
+ptr + offset   // offset: int-Variable
+
+Wieviel zählt "+ 3" dazu: In DIESEM Beispiel wäre das der Wert 12 = 3 * sizeof (int)
+                                                                  = 3 * 4
+Eine ironische Aussage:
+
+"C hat keine Arrays / Felder"
+
+
+    while ( cp[offset] != '\0'  ) {
+00007FF62BD92937  movsxd      rax,dword ptr [offset]  
+00007FF62BD9293B  mov         rcx,qword ptr [cp]  
+00007FF62BD92942  movsx       eax,byte ptr [rcx+rax]  
+00007FF62BD92946  test        eax,eax  
+00007FF62BD92948  je          length3+44h (07FF62BD92954h)  
+        ++offset;
+00007FF62BD9294A  mov         eax,dword ptr [offset]  
+00007FF62BD9294D  inc         eax  
+00007FF62BD9294F  mov         dword ptr [offset],eax  
+    }
+00007FF62BD92952  jmp         length3+27h (07FF62BD92937h)  
+
+    while ( *(cp + offset)  != '\0') {
+00007FF62BD92954  movsxd      rax,dword ptr [offset]  
+00007FF62BD92958  mov         rcx,qword ptr [cp]  
+00007FF62BD9295F  movsx       eax,byte ptr [rcx+rax]  
+00007FF62BD92963  test        eax,eax  
+00007FF62BD92965  je          length3+61h (07FF62BD92971h)  
+        ++offset;
+00007FF62BD92967  mov         eax,dword ptr [offset]  
+00007FF62BD9296A  inc         eax  
+00007FF62BD9296C  mov         dword ptr [offset],eax  
