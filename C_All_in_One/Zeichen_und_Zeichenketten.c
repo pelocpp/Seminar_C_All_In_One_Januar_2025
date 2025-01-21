@@ -160,6 +160,8 @@ void test_chr_append()
 
     printf("vorher:  %s\n", ziel);
 
+    // Beispiel: "12345"  , plus '!'  ===> ziel: "12345!"
+
     chr_append("12345", '!', ziel, 50);
 
     printf("nachher:  %s\n", ziel);
