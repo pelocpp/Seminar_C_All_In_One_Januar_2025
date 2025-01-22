@@ -229,3 +229,62 @@ In einer ersten Aussage ist void* nicht für uns Anwendungsprogrammierer gedacht.
 
 ============================================================
 
+malloc / free
+=============
+
+== Arrays mit malloc allokieren
+== Übung
+
+
+        *(ptr + i) = 2 * i;
+00007FF7C40771ED  mov         eax,dword ptr [rbp+64h]  
+00007FF7C40771F0  shl         eax,1  
+00007FF7C40771F2  movsxd      rcx,dword ptr [rbp+64h]  
+00007FF7C40771F6  mov         rdx,qword ptr [ptr]  
+00007FF7C40771FA  mov         dword ptr [rdx+rcx*4],eax  
+
+        ptr[i] = 2 * i;
+00007FF7C4077224  mov         eax,dword ptr [rbp+84h]  
+00007FF7C407722A  shl         eax,1  
+00007FF7C407722C  movsxd      rcx,dword ptr [rbp+84h]  
+00007FF7C4077233  mov         rdx,qword ptr [ptr]  
+00007FF7C4077237  mov         dword ptr [rdx+rcx*4],eax  
+
+// ==========================================================
+
+Übung:
+------
+
+Zwei Zeichenketten:
+
+"123456789"
+und
+"ABCDEF"
+
+Ziel: Berechnung der Zeichenkette "123456789ABCDEF"
+
+also Aneinanderhängen  (chr_append)  
+
+ABER:
+
+a) Viele Charakter
+b) Das Ergebnis wird NICHT  in einem char dest[200] abgelegt,
+sondern in einem Puffer (char-Array) , dass passgenau auf dem Heap liegt.
+
+Dynamische Speicherverwaltung
+Zeichenkettenverarbeitung mit dynamisch allokiertem Speicher
+Dynamische Speicherverwaltung, Funktionen malloc und free, Rückgabe von Adressen.
+
+Hinweis:
+
+int str_append(const char* original, const char* toAppend, char** result);
+
+Wie wird / kann dieses str_append aufgerufen werden ???
+
+char* result = NULL;   // result soll auf das berechnete Ergebnis zeigen.
+
+str_append("Hello ", "World!", &result);
+
+&int   ==>  function ( ...., int* a,  
+
+& char*   ==>  function ( ...., char* * a,  )
