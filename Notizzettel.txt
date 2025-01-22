@@ -430,8 +430,9 @@ Nein: Im Debug-Modus übernimmt der Debugger die Vorbelegung eines Arrays.
 
 Es gibt für STACK und HEAP unterschiedlichen "Vorbelegungs"-Werte des Debuggers:
 
-CCCCC
-DDDDD
+CCCCCC:   Stack
+CDCDCD:   Heap - nach der Reservierung
+DDDDDD:   Heap - nach der Freigabe
 
 Frage:
 

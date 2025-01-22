@@ -165,5 +165,4 @@ void test_chr_append()
     chr_append("12345", '!', ziel, 50);
 
     printf("nachher:  %s\n", ziel);
-
 }

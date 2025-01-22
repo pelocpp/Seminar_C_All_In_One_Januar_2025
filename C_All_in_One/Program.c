@@ -1,7 +1,8 @@
 #include "Functions.h"
 
-void main()
+int main()
 {
     // Aufruf einer Funktion
-    test_chr_append();
+    test_dynamic();
+    return 1;
 }

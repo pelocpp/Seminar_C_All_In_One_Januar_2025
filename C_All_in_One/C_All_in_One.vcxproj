@@ -129,10 +129,13 @@
   <ItemGroup>
     <Text Include="..\Notizzettel.txt" />
     <Text Include="..\Notizzettel_Dienstag.txt" />
+    <Text Include="..\Notizzettel_Mittwoch.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="Dynamic.c" />
     <ClCompile Include="Introduction.c" />
     <ClCompile Include="Program.c" />
+    <ClCompile Include="Strukturen.c" />
     <ClCompile Include="Zeichen_und_Zeichenketten.c" />
     <ClCompile Include="Zeiger.c" />
   </ItemGroup>

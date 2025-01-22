@@ -17,6 +17,7 @@
   <ItemGroup>
     <Text Include="..\Notizzettel.txt" />
     <Text Include="..\Notizzettel_Dienstag.txt" />
+    <Text Include="..\Notizzettel_Mittwoch.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Program.c">
@@ -29,6 +30,12 @@
       <Filter>Source Files</Filter>
     </ClCompile>
     <ClCompile Include="Zeichen_und_Zeichenketten.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Strukturen.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="Dynamic.c">
       <Filter>Source Files</Filter>
     </ClCompile>
   </ItemGroup>

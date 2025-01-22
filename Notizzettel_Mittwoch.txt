@@ -1,0 +1,231 @@
+C All in One
+
+Guten Morgen 
+
+Mittwoch
+
+======================================================
+
+Strukturen
+
+Array: Mehrere Daten / Variablen DESSELBEN Typs
+
+Struktur: Mehrere Daten / Variablen UNTERSCHIEDLICHEN Typs
+
+
+SYNTAX:
+
+struct NameDerStruktur
+{
+    typ variable;
+    typ variable;
+    ....
+};
+
+// Können wir am Beispiel
+
+struct Time
+{
+    int hours;
+    int minutes;
+    int seconds;
+};
+
+die Stunden, Minuten etc. auf sinnvolle Werte beschränken:
+
+C: Nein !!!
+
+C++: Objektorierentierte Programmiersprache
+
+     getter / setter
+
+     Kapselung // Information Hiding // Schutz der Daten
+
+class Time
+{
+private:
+    int m_hours;
+    int m_minutes;
+    int m_seconds;
+
+public:
+    int getHours() { return m_hours; }
+
+    void setHours (int hours) {
+    
+        if ( hours < 0 || hours >= 24 ) {
+            // Fehlerbehebung
+            throw exception (..);
+            // oder "silent error recovery"
+            // nichts tun.
+        }
+    }
+};
+
+
+C: Nein !!! ABER:
+
+Man kann auch in C "objekt-orientiert" programmieren :)
+
+Kritiker: "OO des armen Mannes".
+
+Schreibweise // Syntax:
+
+t->hours = 0;            // Dies ist eine Schreibweise für Anwender
+
+IST IDENTISCH ZU
+
+(*t).hours = 0;          // Das sieht der C-Compiler
+
+ACHTUNG: Hier gibt es eine Analogie zu Arrays:
+
+int zahlen[10];
+
+Die Anweisung
+
+zahlen[i] = 123;         // Dies ist eine Schreibweise für Anwender
+
+IST IDENTISCH ZU
+
+*(zahlen + i) = 123;     // Das sieht der C-Compiler
+
+============================================================
+
+Schreibweise / Syntax:
+
+struct Time t1;   
+
+Es gibt aus eine kürzere / andere Syntax:
+
+typedef ALTER_NAME NEUER_NAME;
+
+===========================================================
+
+Frage:
+
+Call-by-Value bei Strukturen:
+
+== Brauchen mehr Speicher für die Kopie 
+== Das Anlegen / Erzeugen der Kopie kostet Zeit / Performanz
+
+Deshalb:
+
+Im Regelfall würde ich bei Strukturen Call-by-Address bevorzugen.
+
+==============================================================
+
+C-Programm:
+
+3 Arten von Variablen // Lebensdauer:
+
+a) Globale Variablen: Die gesamte Laufzeit des Programms.
+
+b) Lokale Variablen: Nur innerhalb eines Unterprogramms (exakter: innerhalb eines Blocks)
+
+       Sie liegen datentechnisch am STACK
+
+c) Dynamische Variablen: Wenn ich sie benötige.
+
+       == malloc / free:   "Freispeicherverwaltung"
+
+       == Sie liegen datentechnisch am HEAP / Haufen / Halde
+
+
+malloc: Reserviert freien Speicher auf der Halde ...
+        und macht diesen durch einen ZEIGER / POINTER verfügbar.
+
+1. Beispiel: Wir wollen eine int-Variable dynamisch auf der Halde anlegen.
+
+Frage: Was sage ich in diesem Fall zu malloc: Welchen Parameter übergebe ich an malloc?
+
+malloc(1)  ????
+
+Anwort: malloc denkt / arbeitet in BYTES.
+
+Wir benötigen sizeof, um jeweils die Anzahl BYTES zu bestimmen.
+
+==========================================================
+
+Hinweis:
+
+Uninitialisierter Speicher:
+
+CCCCCC:   Stack
+CDCDCD:   Heap - nach der Reservierung
+DDDDDD:   Heap - nach der Freigabe
+
+==========================================================
+
+malloc liefert einen Zeiger zurück.
+
+Dieser ist NULL, wenn es keinen Speicher mehr gibt.
+
+Muss ich IMMER den Zeiger auf NULL überprüfen / abfragen:
+
+a) Lt. Handbuch: Ja
+
+b) In der Praxis: Depends.
+
+i) Bei "minimalen" Anforderungen (1 bis 100 Bytes)
+   kann man sich das m.E. schenken. 
+
+ii) Bei größereren Anforderungen: Unbedingt auf NULL überprüfen.
+
+Was kann man machen:  C - Keine Oberfläche vorhanden.
+
+Micro-Controller: Keine Oberfläche.
+
+Log-Datei // Datei //
+
+Micro-Controller ==> Serielle Schnittstelle nach außen Infos weiterreichen.
+
+Klassisch: Log-Datei.
+
+// ========================================================
+
+Vorsicht mit dem 'free':
+
+Es MUSS immer geklärt sein, "wer" gibt die Daten frei !!!
+
+Wer allokiert ???
+Wer gibt frei ???
+
+// ========================================================
+
+Fehlen free's in meinem Programm ???
+
+Da gibt es - unter Visual Studio - eine "einfache" Option:
+
+CRT:  C-Runtime-Library
+
+== malloc / free
+== printf
+
+Detected memory leaks!
+Dumping objects ->
+C:\Development\Seminar_C_All_In_One\C_All_in_One\C_All_in_One\Dynamic.c(16) : {78} normal block at 0x000001D4E9EB5470, 4 bytes long.
+ Data: <{   > 7B 00 00 00 
+Object dump complete.
+
+====================================================
+
+malloc kann Speicher reservieren für
+
+== int's
+== double's
+== Strukturen
+== Felder
+== quasi alles
+
+Wie geht malloc diesbzgl. mit dem Rückgabewert um ???
+
+int*
+double*
+struct Time*
+
+Trick:  void*
+
+In einer ersten Aussage ist void* nicht für uns Anwendungsprogrammierer gedacht.
+
+============================================================
+
