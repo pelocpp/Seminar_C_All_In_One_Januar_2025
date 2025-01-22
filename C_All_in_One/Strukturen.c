@@ -1,24 +1,7 @@
 #include <stdio.h>
 #include <string.h>
 
-// Strukturen
-
-struct Person
-{
-    char vorname[50];
-    char nachname[50];
-
-    int age;
-};
-
-struct time
-{
-    int hours;
-    int minutes;
-    int seconds;
-};
-
-typedef struct time Time;
+#include "Functions.h"
 
 static void testStruktur_01()
 {

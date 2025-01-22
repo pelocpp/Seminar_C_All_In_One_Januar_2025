@@ -2,4 +2,5 @@
 
 ## Allgemeines 
 
-Weitere Notizen siehe [hier](Notizzettel.txt).
+Weitere Notizen siehe [hier](Notizzettel_Montag.txt).
+

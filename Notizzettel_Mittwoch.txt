@@ -288,3 +288,41 @@ str_append("Hello ", "World!", &result);
 &int   ==>  function ( ...., int* a,  
 
 & char*   ==>  function ( ...., char* * a,  )
+
+=====================================================
+
+Globale Variable:
+
+// globale Variable
+int g_intValue = 123;    // => Typ name = Vorbelegungswert;
+
+Auf der obersten Ebene stehen.
+
+// ======================================================
+
+Man kann auch in C "objekt-orientiert" programmieren :)
+
+Kritiker: "OO des armen Mannes".
+
+Wie geht das ????????????????
+
+Geldbeutel
+
+Soll Euros und Cents enthalten.
+
+// Zusatz: 5 Euros 250 cents ===> 7 Euros 50 cents.
+
+Was heißt Objektorientierung ???
+
+Es gibt Objekte (C: Strukturvariablen) und Methoden (Funktionen),
+die mit dem Objekte (Strukturvariablen) zusammenarbeiten.
+
+Umsetzung: Die Strukturvariablen wird NUR / AUSSCHLIE?LICH
+über Funktionen verarbeitet (lesen, schreiben)
+
+
+
+
+
+
+

@@ -27,6 +27,27 @@ https://github.com/pelocpp/c_introduction
 
 Einführung in die Arbeitsweise der Werkzeuge
 
+Präprozessor:
+
+== Ist ein Tool.
+== Läuft VOR DEM Compiler.
+== Was tut er ???
+
+Er führt mehrere Pseudo-Anweisungen aus:
+
+#define
+#include
+#pragma
+
+Der Präprozessor LIEST den Quelltext Zeile für Zeile,
+sucht Pseudo-Anweisungen und führt sie aus.
+
+Findet er KEINE  Pseudo-Anweisungen, kopiert er die gelesene Zeile
+ungefiltert in die Ausgabe.
+
+Der Präprozessor ist ein Textersetzungssystem.
+
+
 Übersetzer (Compiler)
 
 In C:
