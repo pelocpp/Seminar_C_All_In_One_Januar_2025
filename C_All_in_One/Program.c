@@ -5,6 +5,6 @@ int g_intValue = 123;
 
 int main()
 {
-    test_DynamicIntArray();
+    test_contacts();
     return 1;
 }

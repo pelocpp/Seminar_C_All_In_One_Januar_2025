@@ -54,6 +54,7 @@ extern void mainMultidimensionalArrays();
 extern void main_jaggedArrays();
 extern void mainUnionsBitfieldsEnums();
 extern void test_DynamicIntArray();
+extern void test_contacts();
 
 // ===========================================
 // End-of-File

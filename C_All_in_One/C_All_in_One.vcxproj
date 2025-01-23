@@ -139,6 +139,7 @@
     <ClCompile Include="Introduction.c" />
     <ClCompile Include="JaggedArray.c" />
     <ClCompile Include="MultiDimArray.c" />
+    <ClCompile Include="Phonebook.c" />
     <ClCompile Include="Program.c" />
     <ClCompile Include="Strukturen.c" />
     <ClCompile Include="UsingGlobalVariables.c" />

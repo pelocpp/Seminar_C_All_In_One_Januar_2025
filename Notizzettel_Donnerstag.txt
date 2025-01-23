@@ -200,3 +200,29 @@ Man kann dies mit Strukturen und Kapselung besser / safer / securer lösen.
 
 ======================================================
 
+Mischung:
+
+== Bibliothek
+== Felder von Strukturen
+
+=====================================================
+
+Globale Variablen
+
+=====================================================
+
+CRT - C Runtime Library
+
+scanf_s
+strlen
+strcpy_s
+
+Beobachtung:
+
+Wie lese ich eine Nummer fehlerfrei ein ??????????????????
+
+a) erst mal alles als Zeichenkette behandeln
+
+b) eine Zeichenkette inhaltlich nun auf das überprüfen, was erwartet wird
+
+

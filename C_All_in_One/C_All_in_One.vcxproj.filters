@@ -57,6 +57,9 @@
     <ClCompile Include="DynamicIntArray.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="Phonebook.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\README.md" />
