@@ -18,6 +18,7 @@
     <Text Include="..\Notizzettel_Montag.txt" />
     <Text Include="..\Notizzettel_Dienstag.txt" />
     <Text Include="..\Notizzettel_Mittwoch.txt" />
+    <Text Include="..\Notizzettel_Donnerstag.txt" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Program.c">
@@ -44,12 +45,27 @@
     <ClCompile Include="Wallet.c">
       <Filter>Source Files</Filter>
     </ClCompile>
+    <ClCompile Include="MultiDimArray.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="JaggedArray.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="BitfieldsAndMore.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
+    <ClCompile Include="DynamicIntArray.c">
+      <Filter>Source Files</Filter>
+    </ClCompile>
   </ItemGroup>
   <ItemGroup>
     <None Include="..\README.md" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="Functions.h">
+      <Filter>Header Files</Filter>
+    </ClInclude>
+    <ClInclude Include="DynamicIntArray.h">
       <Filter>Header Files</Filter>
     </ClInclude>
   </ItemGroup>

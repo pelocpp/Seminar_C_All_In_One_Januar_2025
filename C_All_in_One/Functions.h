@@ -50,6 +50,10 @@ extern void testStruktur();
 extern void test_dynamic();
 extern void test_global_variables();
 extern void test_defines();
+extern void mainMultidimensionalArrays();
+extern void main_jaggedArrays();
+extern void mainUnionsBitfieldsEnums();
+extern void test_DynamicIntArray();
 
 // ===========================================
 // End-of-File

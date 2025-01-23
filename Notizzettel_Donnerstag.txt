@@ -1,0 +1,202 @@
+C All in One
+
+Guten Morgen 
+
+Donnerstag
+
+======================================================
+
+Zu Lösung von Wallet:
+
+Strategie:
+
+Kapeslung // Information Hiding:
+
+Alles in der Struktur soll verborgen sein.
+
+struct wallet
+{
+    unsigned long long m_euros; 
+    unsigned int       m_cents;
+};
+
+static unsigned long long getEuros(Wallet* wallet)
+{
+    return wallet->m_euros;
+}
+
+static unsigned int getCent(Wallet* wallet)
+{
+    return wallet->m_cents;
+}
+
+A) Kann auf m_euros DIREKT zugreifen
+
+B) Wozu dann getEuros ???
+
+   i) Strategie
+   ii) Hmm, irgendwie stimmt der Betrag nicht ???
+
+   static unsigned long long getEuros(Wallet* wallet)
+   {
+      printf("Wert auslesen: %d" , wallet->m_euros);
+      return wallet->m_euros;
+   }
+
+
+Wallet w;
+w.m_euros = 1000;   // das kann man nicht loggen // printf
+
+Loggen: Jede Funktion könnte eine Ausgabe in ein Log-File machen
+
+=> Flags, um zu viele Ausgaben zu verhindern-
+
+==========================================================
+
+a) Mehrdimensionale Felder
+
+b) Gezackte // Jagged Arrays 
+
+
+Werkzeuge für Vektoren:
+
+In C selbst NEIN.
+
+Bibliotheken // Boost (C++)
+
+===========================================================
+
+In welcher Richtung können die Zacken gehen ???
+
+Nomenklatur:
+
+a) Mehrdimensionale Felder
+
+   DIE GIBT ES IN C NICHT !?!?!?!?!?!
+
+   Was haben wir in C:
+
+   Wir haben Felder von Feldern // Array of Array
+
+==========================================================
+
+malloc:   Anzahl Bytes
+
+free
+
+calloc:  Number of element * Length in bytes of a single element.
+
+VORSICHT:
+
+ '=': 'int' differs in levels of indirection from 'int *'
+
+ DIES IST EIN ERROR !!!
+
+==========================================================
+
+2 Verbesserungen:
+
+a) Trennung in Anwender und Bereitstellung
+
+b) Zu jedem calloc gehört ein free
+
+==========================================================
+
+Emebedded // Micro Controller Programming
+
+Naiver Tipp:
+
+Jede Zeile SW, die man schreibt, sollte man EINMAL im DEBUGGER durchlaufen haben.
+
+== Dann sieht man, dass die SW tut, was sie soll.
+
+== Dies ist nicht immer ganz einfach: Reproduzierbarkeit.
+
+==========================================================
+
+Union:
+
+RGB - Wert:
+
+Farbe => int-Wert  // 32 Bit  // pro Farbe: 8 Bit ( 0 .. 255 ) // 3 Farben + ggf. Alpha = 4 * 8 = 32 Bits
+
+Möglichkeit: 
+
+Optimal:
+
+unsigned int aColor;
+// oder
+unsigned char valuesOfColor [4]; // [0]:  red, [1] green, [2] blue, [3] alpha
+
+LÖSUNG: via Union
+
+union RGB
+{
+    unsigned int  aColor;
+    unsigned char valuesOfColor [4];
+}
+
+==================================================================
+
+enum:
+
+Fasst mehrere symbolische Konstante zusammen.
+
+==> Konstante: Es geht - im Regelfall - aber nicht um den WERT.
+
+
+enums sind eine "schöne Sache":
+
+Sie verbessern die Lesbarkeit des Quellcodes.
+
+==================================================================
+==================================================================
+
+Komplex-Übung:
+
+Sie soll mehrere Konzepte in einer Anwendung vereinen:
+
+== Strukturen
+== Zeiger / Pointer
+== Dyn. Speicherverwaltung.
+== OO in C
+
+Beispiel:
+
+static void test_dynamic()
+{
+    int n = 20;
+
+    int countBytes = n * sizeof(int);  // bytes
+
+    // dynamisches Feld
+    // Mache ich das dann immer so .........
+    // Kann man das rausziehen / an einer Stelle zentral zusammenfassen 
+    // Funktionalität: Dynamisches Feld
+    int* ptr = malloc(countBytes);   // calloc wäre auch möglich
+
+    // vorbelegen - pure -  mit Zeigerarithmetik
+    for (int i = 0; i < n; ++i) {
+        *(ptr + i) = 2 * i;
+        //
+        ptr[i] = 2 * i;
+    }
+
+    ............
+
+Wie geht das besser ???
+
+Zunächst einmal mit einer Struktur.
+
+======================================================
+
+C per Definition:
+
+You can do what you want :)
+
+Widerspruch: Safe / Secure Programming
+
+Man kann dies mit Strukturen und Kapselung besser / safer / securer lösen.
+
+======================================================
+

@@ -127,13 +127,18 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <Text Include="..\Notizzettel_Donnerstag.txt" />
     <Text Include="..\Notizzettel_Montag.txt" />
     <Text Include="..\Notizzettel_Dienstag.txt" />
     <Text Include="..\Notizzettel_Mittwoch.txt" />
   </ItemGroup>
   <ItemGroup>
+    <ClCompile Include="BitfieldsAndMore.c" />
     <ClCompile Include="Dynamic.c" />
+    <ClCompile Include="DynamicIntArray.c" />
     <ClCompile Include="Introduction.c" />
+    <ClCompile Include="JaggedArray.c" />
+    <ClCompile Include="MultiDimArray.c" />
     <ClCompile Include="Program.c" />
     <ClCompile Include="Strukturen.c" />
     <ClCompile Include="UsingGlobalVariables.c" />
@@ -145,6 +150,7 @@
     <None Include="..\README.md" />
   </ItemGroup>
   <ItemGroup>
+    <ClInclude Include="DynamicIntArray.h" />
     <ClInclude Include="Functions.h" />
   </ItemGroup>
   <ItemGroup>

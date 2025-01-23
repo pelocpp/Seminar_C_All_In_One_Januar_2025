@@ -5,7 +5,6 @@ int g_intValue = 123;
 
 int main()
 {
-    // Aufruf einer Funktion
-    test_defines();
+    test_DynamicIntArray();
     return 1;
 }
